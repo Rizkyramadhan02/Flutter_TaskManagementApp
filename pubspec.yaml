@@ -10,6 +10,7 @@ dependencies:
   get: 4.6.5
   ionicons: 0.2.1
   iconsax: 0.0.8
+  font_awesome_flutter: 10.2.1
   flutter: 
     sdk: flutter
 
