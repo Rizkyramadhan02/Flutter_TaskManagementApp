@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:task_management_app/app/utils/widget/header.dart';
 import 'package:task_management_app/app/utils/widget/sideBar.dart';
 
 import '../controllers/home_controller.dart';
@@ -19,9 +20,17 @@ class HomeView extends GetView<HomeController> {
             ),
             Expanded(
               flex: 15,
-              child: Container(
-                color: Colors.white,
-              ),
+              child: Column(children: [
+                const header(),
+                Expanded(
+                    child: Container(
+                  padding: const EdgeInsets.all(50),
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50)),
+                ))
+              ]),
             )
           ],
         ));
