@@ -11,6 +11,7 @@ dependencies:
   ionicons: 0.2.1
   iconsax: 0.0.8
   font_awesome_flutter: 10.2.1
+  ant_design_flutter: 0.0.1+5
   flutter: 
     sdk: flutter
 
