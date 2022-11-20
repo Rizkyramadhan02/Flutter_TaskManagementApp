@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
@@ -50,8 +52,8 @@ class SideBar extends StatelessWidget {
                               : const BoxDecoration(),
                           child: Icon(
                             Get.currentRoute == '/home'
-                                ? Ionicons.desktop
-                                : Ionicons.desktop_outline,
+                                ? Iconsax.home
+                                : Iconsax.home,
                             color: Colors.grey,
                             size: 30,
                           ),
@@ -85,8 +87,8 @@ class SideBar extends StatelessWidget {
                             : const BoxDecoration(),
                         child: Icon(
                           Get.currentRoute == '/task'
-                              ? Ionicons.cube
-                              : Ionicons.cube_outline,
+                              ? Iconsax.d_cube_scan
+                              : Iconsax.d_cube_scan,
                           color: AppColors.primaryText,
                           size: 30,
                         ),
@@ -119,8 +121,8 @@ class SideBar extends StatelessWidget {
                             : const BoxDecoration(),
                         child: Icon(
                           Get.currentRoute == '/friends'
-                              ? Ionicons.heart
-                              : Ionicons.heart_outline,
+                              ? Iconsax.heart
+                              : Iconsax.heart,
                           color: Colors.grey,
                           size: 30,
                         ),
@@ -154,8 +156,8 @@ class SideBar extends StatelessWidget {
                             : const BoxDecoration(),
                         child: Icon(
                           Get.currentRoute == '/profile'
-                              ? Ionicons.person
-                              : Ionicons.person_outline,
+                              ? Iconsax.profile_circle
+                              : Iconsax.profile_circle,
                           color: AppColors.primaryText,
                           size: 30,
                         ),

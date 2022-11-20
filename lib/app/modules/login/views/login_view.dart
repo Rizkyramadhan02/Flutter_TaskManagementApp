@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -100,8 +101,8 @@ class LoginView extends GetView<LoginController> {
                     FloatingActionButton.extended(
                       onPressed: () => Get.toNamed(Routes.HOME),
                       label: const Text('Sign In With Google'),
-                      icon:
-                          const Icon(Ionicons.logo_google, color: Colors.white),
+                      icon: const Icon(FontAwesomeIcons.google,
+                          color: Colors.white),
                     )
                   ]),
             ),

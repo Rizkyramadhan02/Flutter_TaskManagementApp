@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
@@ -59,7 +61,7 @@ class header extends StatelessWidget {
           const SizedBox(
             width: 20,
           ),
-          const Icon(Ionicons.notifications,
+          const Icon(FontAwesomeIcons.bell,
               color: AppColors.primaryText, size: 30),
           const SizedBox(
             width: 20,
@@ -89,9 +91,9 @@ class header extends StatelessWidget {
                   width: 5,
                 ),
                 Icon(
-                  Ionicons.log_out_outline,
+                  FontAwesomeIcons.signOut,
                   color: AppColors.primaryText,
-                  size: 30,
+                  size: 23,
                 ),
               ],
             ),

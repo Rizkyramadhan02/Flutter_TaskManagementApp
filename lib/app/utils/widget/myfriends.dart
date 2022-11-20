@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
@@ -40,7 +42,7 @@ class MyFriends extends StatelessWidget {
                     ),
                   ),
                   Icon(
-                    Ionicons.chevron_forward,
+                    FontAwesomeIcons.chevronRight,
                     color: AppColors.primaryText,
                   )
                 ],
@@ -53,18 +55,17 @@ class MyFriends extends StatelessWidget {
                 child: GridView.builder(
                     shrinkWrap: true,
                     itemCount: 8,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 20,
-                            mainAxisSpacing: 20),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: context.isPhone ? 2 : 3,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20),
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: const Image(
-                              height: 90,
+                              height: 100,
                               image: NetworkImage(
                                   'https://pbs.twimg.com/media/EnbDAFKXcAAVBsO?format=jpg&name=large'),
                             ),
