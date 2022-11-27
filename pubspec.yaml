@@ -12,6 +12,8 @@ dependencies:
   iconsax: 0.0.8
   font_awesome_flutter: 10.2.1
   ant_design_flutter: 0.0.1+5
+  firebase_core: 2.3.0
+  firebase_auth: 4.1.4
   flutter: 
     sdk: flutter
 

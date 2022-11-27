@@ -52,8 +52,8 @@ class SideBar extends StatelessWidget {
                               : const BoxDecoration(),
                           child: Icon(
                             Get.currentRoute == '/home'
-                                ? Iconsax.home
-                                : Iconsax.home,
+                                ? Icons.desktop_windows
+                                : Icons.desktop_windows_outlined,
                             color: Colors.grey,
                             size: 30,
                           ),
