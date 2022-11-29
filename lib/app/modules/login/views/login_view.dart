@@ -4,12 +4,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:task_management_app/app/data/controller/auth_controller.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
 
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +100,7 @@ class LoginView extends GetView<LoginController> {
                       height: Get.height * 0.5,
                     ),
                     FloatingActionButton.extended(
-                      onPressed: () => Get.toNamed(Routes.HOME),
+                      onPressed: () => authC.signInWithGoogle(),
                       label: const Text('Sign In With Google'),
                       icon: const Icon(FontAwesomeIcons.google,
                           color: Colors.white),
