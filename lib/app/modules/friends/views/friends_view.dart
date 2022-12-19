@@ -6,6 +6,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/data/controller/auth_controller.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
+import 'package:task_management_app/app/utils/widget/PeopleYouMayKnow.dart';
 import 'package:task_management_app/app/utils/widget/header.dart';
 import 'package:task_management_app/app/utils/widget/myfriends.dart';
 import 'package:task_management_app/app/utils/widget/sideBar.dart';
@@ -153,72 +154,16 @@ class FriendsView extends GetView<FriendsController> {
                                       color: AppColors.primaryText,
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 200,
-                                    child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      shrinkWrap: true,
-                                      clipBehavior: Clip.antiAlias,
-                                      itemCount: 10,
-                                      itemBuilder: (context, index) {
-                                        return Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Stack(
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(30),
-                                                child: const Image(
-                                                  image: NetworkImage(
-                                                      'https://pbs.twimg.com/media/EnbDAFKXcAAVBsO?format=jpg&name=large'),
-                                                ),
-                                              ),
-                                              const Positioned(
-                                                bottom: 10,
-                                                left: 10,
-                                                child: Text(
-                                                  'Cristiano Ronaldo',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 15),
-                                                ),
-                                              ),
-                                              Positioned(
-                                                bottom: 0,
-                                                right: 0,
-                                                child: SizedBox(
-                                                  height: 36,
-                                                  width: 36,
-                                                  child: ElevatedButton(
-                                                    onPressed: () {},
-                                                    style: ElevatedButton
-                                                        .styleFrom(
-                                                      padding: EdgeInsets.zero,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(40),
-                                                      ),
-                                                    ),
-                                                    child: const Icon(
-                                                        Iconsax.add_circle),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  const MyFriends(),
+                                  PeopleYouMayKnow(),
+                                  MyFriends(),
                                 ])
                           : ListView.builder(
                               padding: EdgeInsets.all(8),
                               shrinkWrap: true,
                               itemCount: authCon.hasilPencarian.length,
                               itemBuilder: (context, index) => ListTile(
+                                onTap: () => authCon.addFriends(
+                                    authCon.hasilPencarian[index]['email']),
                                 leading: ClipRRect(
                                   borderRadius: BorderRadius.circular(30),
                                   child: Image(
