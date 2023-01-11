@@ -5,6 +5,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/data/controller/auth_controller.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
+import 'package:task_management_app/app/utils/widget/PeopleYouMayKnow.dart';
 import 'package:task_management_app/app/utils/widget/header.dart';
 import 'package:task_management_app/app/utils/widget/myTask.dart';
 import 'package:task_management_app/app/utils/widget/profileW.dart';
@@ -14,7 +15,7 @@ import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
-  final authC = Get.find<AuthController>();
+  final authConn = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class ProfileView extends GetView<ProfileController> {
                                     child: const Text('Cancel'),
                                   ),
                                   confirm: ElevatedButton(
-                                    onPressed: () => authC.logout(),
+                                    onPressed: () => authConn.logout(),
                                     child: const Text('Sign Out'),
                                   ),
                                 );
@@ -127,22 +128,19 @@ class ProfileView extends GetView<ProfileController> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         ProfileW(),
-                        Text(
-                          'MY Task',
+                        const Text(
+                          'People You May Know',
                           style: TextStyle(
                             color: AppColors.primaryText,
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        SizedBox(
-                          height: 200,
-                          child: MyTask(),
-                        ),
+                        SizedBox(height: 200, child: PeopleYouMayKnow()),
                       ],
                     ),
                   ),

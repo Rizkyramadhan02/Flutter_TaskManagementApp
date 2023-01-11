@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
+import 'package:task_management_app/app/utils/widget/PeopleYouMayKnow.dart';
 import 'package:task_management_app/app/utils/widget/header.dart';
 import 'package:task_management_app/app/utils/widget/myTask.dart';
 import 'package:task_management_app/app/utils/widget/myfriends.dart';
 import 'package:task_management_app/app/utils/widget/sideBar.dart';
 import 'package:task_management_app/app/utils/widget/upcomingTask.dart';
 
+import '../../../data/controller/auth_controller.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  final authCon = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -79,11 +82,11 @@ class HomeView extends GetView<HomeController> {
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(30),
-                              child: const CircleAvatar(
+                              child: CircleAvatar(
                                 backgroundColor: Colors.amber,
                                 radius: 25,
                                 foregroundImage: NetworkImage(
-                                    'https://pbs.twimg.com/media/EnbDAFKXcAAVBsO?format=jpg&name=large'),
+                                    authCon.auth.currentUser!.photoURL!),
                               ),
                             ),
                           ],
@@ -105,40 +108,38 @@ class HomeView extends GetView<HomeController> {
                           : BorderRadius.circular(10),
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          // height: Get.height * 0.3,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'MY Task',
-                                style: TextStyle(
-                                  color: AppColors.primaryText,
-                                  fontSize: 30,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            // height: Get.height * 0.3,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'People You May Know',
+                                  style: TextStyle(
+                                    color: AppColors.primaryText,
+                                    fontSize: 30,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              // My Task
-                              MyTask(),
-                            ],
+                                // My Task
+                                PeopleYouMayKnow(),
+                              ],
+                            ),
                           ),
-                        ),
-                        !context.isPhone
-                            ? Expanded(
-                                child: Row(
-                                  children: [
-                                    UpcomingTask(),
-                                    MyFriends(),
-                                  ],
-                                ),
-                              )
-                            : const UpcomingTask(),
-                      ],
-                    ),
+                          !context.isPhone
+                              ? Expanded(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      MyTask(),
+                                      MyFriends(),
+                                    ],
+                                  ),
+                                )
+                              : MyTask(),
+                        ]),
                   ),
                 )
               ]),

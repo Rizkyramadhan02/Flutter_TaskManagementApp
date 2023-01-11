@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:task_management_app/app/data/controller/auth_controller.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
 import 'package:get/get.dart';
 
 class ProfileW extends StatelessWidget {
-  const ProfileW({
-    Key? key,
-  }) : super(key: key);
+  final authConn = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +12,14 @@ class ProfileW extends StatelessWidget {
       child: !context.isPhone
           ? Row(
               children: [
-                const Expanded(
+                Expanded(
                   flex: 1,
                   child: ClipRRect(
                     child: CircleAvatar(
                       backgroundColor: Colors.amber,
                       radius: 120,
-                      foregroundImage: NetworkImage(
-                          'https://pbs.twimg.com/media/EnbDAFKXcAAVBsO?format=jpg&name=large'),
+                      foregroundImage:
+                          NetworkImage(authConn.auth.currentUser!.photoURL!),
                     ),
                   ),
                 ),
@@ -32,17 +31,17 @@ class ProfileW extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        'Cristiano Ronaldo',
-                        style: TextStyle(
+                        authConn.auth.currentUser!.displayName!,
+                        style: const TextStyle(
                           color: AppColors.primaryText,
                           fontSize: 30,
                         ),
                       ),
                       Text(
-                        'cristianocr7@gmail.com',
-                        style: TextStyle(
+                        authConn.auth.currentUser!.email!,
+                        style: const TextStyle(
                           color: AppColors.primaryText,
                           fontSize: 16,
                         ),
@@ -54,31 +53,31 @@ class ProfileW extends StatelessWidget {
             )
           : Center(
               child: Column(
-                children: const [
-                  SizedBox(
+                children: [
+                  const SizedBox(
                     height: 10,
                   ),
                   ClipRRect(
                     child: CircleAvatar(
                       backgroundColor: Colors.amber,
                       radius: 95,
-                      foregroundImage: NetworkImage(
-                          'https://pbs.twimg.com/media/EnbDAFKXcAAVBsO?format=jpg&name=large'),
+                      foregroundImage:
+                          NetworkImage(authConn.auth.currentUser!.photoURL!),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
-                    'Cristiano Ronaldo',
-                    style: TextStyle(
+                    authConn.auth.currentUser!.displayName!,
+                    style: const TextStyle(
                       color: AppColors.primaryText,
                       fontSize: 40,
                     ),
                   ),
                   Text(
-                    'cristianocr7@gmail.com',
-                    style: TextStyle(
+                    authConn.auth.currentUser!.email!,
+                    style: const TextStyle(
                       color: AppColors.primaryText,
                       fontSize: 16,
                     ),
